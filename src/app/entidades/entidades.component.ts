@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -24,16 +24,16 @@ import { MessageService } from 'primeng/api';
   providers: [MessageService]
 })
 export default class EntidadesComponent {
-  public entidadesService =inject(EntidadesService);
+  public entidadesService = inject(EntidadesService);
+  total = computed(() => this.entidadesService.entidades().length);
+  selectedEntidades: Entidad[]=[];
+  
   constructor(){
-    
   }
   openNew() {
     throw new Error('Method not implemented.');
   }
-  delete(entidad:Entidad){
-
-  }
+ 
   edit(entidad:Entidad){
 
   }
