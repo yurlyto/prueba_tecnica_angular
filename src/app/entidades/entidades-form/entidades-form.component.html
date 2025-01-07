@@ -1,0 +1,45 @@
+<!-- ... existing table code ... -->
+
+
+    <form [formGroup]="entidadForm">
+        <div class="field">
+            <label for="nombre">Nombre</label>
+            <input type="text" pInputText id="nombre" formControlName="nombre" required/>
+            <small class="p-error" *ngIf="submitted && entidadForm.get('nombre')?.errors?.['required']">
+                Nombre es requerido.
+            </small>
+        </div>
+        <div class="field">
+            <label for="email">Email</label>
+            <input type="text" pInputText id="email" formControlName="email" required/>
+            <small class="p-error" *ngIf="submitted && entidadForm.get('email')?.errors?.['required']">
+                Email es requerida.
+            </small>
+        </div>
+        <div class="field">
+            <label for="nit">NIT</label>
+            <input type="text" pInputText id="nit" formControlName="nit" required/>
+            <small class="p-error" *ngIf="submitted && entidadForm.get('nit')?.errors?.['required']">
+                NIT es requerido.
+            </small>
+        </div>
+        <div class="field">
+            <label for="telefono">Teléfono</label>
+            <input type="text" pInputText id="telefono" formControlName="telefono" required/>
+            <small class="p-error" *ngIf="submitted && entidadForm.get('telefono')?.errors?.['required']">
+                Teléfono es requerido.
+            </small>
+        </div>
+        <div class="field">
+            <label for="direccion">Dirección</label>
+            <input type="text" pInputText id="direccion" formControlName="direccion" required/>
+            <small class="p-error" *ngIf="submitted && entidadForm.get('direccion')?.errors?.['required']">
+                Dirección es requerida.
+            </small>
+        </div>
+        <div>
+            <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="closeModal()"></button>
+            <button pButton pRipple label="Guardar" icon="pi pi-check" class="p-button-text" (click)="saveEntidad()"></button>
+        </div>
+    </form>
+

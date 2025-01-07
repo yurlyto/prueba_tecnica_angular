@@ -15,7 +15,8 @@
             <p-button 
                 severity="danger" 
                 label="Eliminar" 
-                icon="pi pi-trash" badge="{{selectedEntidades.length}}" 
+                icon="pi pi-trash" badge="{{selectedEntidades.length}}"
+                (onClick)="deleteSelectedEntidades()" 
                 />
         </ng-template>
     
@@ -57,6 +58,9 @@
                 <th pSortableColumn="nombre" style="min-width:15rem">
                     Nombre <p-sortIcon field="nombre" />
                 </th>
+                <th pSortableColumn="email" style="min-width:15rem">
+                    Email <p-sortIcon field="email" />
+                </th>
                 <th>
                     Nit
                 </th>
@@ -78,6 +82,9 @@
                 </td>
                 <td>
                     {{ entidad.nombre }}
+                </td>
+                <td>
+                    {{ entidad.email }}
                 </td>
                 <td>
                     {{ entidad.nit }}
@@ -122,5 +129,14 @@
             </div>
         </ng-template>
     </p-table>
+
+    <p-dialog [(visible)]="displayModal" 
+    [modal]="true" 
+    [style]="{ width: '100%', maxWidth: '700px' }" 
+    [draggable]="false" 
+    [resizable]="false"
+    >
+        <app-entidades-form [entidadForm]="entidadForm" (onClose)="displayModal = false" ></app-entidades-form>
+    </p-dialog>
 
 </p-card>

@@ -1,0 +1,37 @@
+<form [formGroup]="formGroup">
+    <div class="field">
+        <label for="nombre">Nombre</label>
+        <input type="text" pInputText id="nombre" formControlName="nombre" required/>
+        <small class="p-error" *ngIf="formGroup.get('nombre')?.errors?.['required']">
+            Nombre es requerido.
+        </small>
+    </div>
+    <div class="field">
+        <label for="identificacion">Identificacion</label>
+        <input type="text" pInputText id="identificacion" formControlName="identificacion" required/>
+        <small class="p-error" *ngIf="formGroup.get('identificacion')?.errors?.['required']">
+            Identificacion es requerida.
+        </small>
+    </div>
+    <div class="field">
+        <label for="email">Email</label>
+        <input type="text" pInputText id="email" formControlName="email" required/>
+        <small class="p-error" *ngIf="formGroup.get('email')?.errors?.['required']">
+            Email es requerido.
+        </small>
+    </div>
+    <div class="field">
+        <label for="telefono">Teléfono</label>
+        <input type="text" pInputText id="telefono" formControlName="telefono" required/>
+        <small class="p-error" *ngIf="formGroup.get('telefono')?.errors?.['required']">
+            Teléfono es requerido.
+        </small>
+    </div>
+    <div class="field">
+        <label for="entidadId">Entidad</label>
+        <p-dropdown [options]="entidades" optionLabel="nombre" optionValue="id" formControlName="entidad_id" placeholder="Seleccione una entidad"></p-dropdown>
+        <small class="p-error" *ngIf="formGroup.get('entidad_id')?.errors?.['required']">
+            Entidad es requerida.
+        </small>
+    </div>
+</form>
